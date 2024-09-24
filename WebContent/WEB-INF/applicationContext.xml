@@ -46,9 +46,9 @@
 		<property name="driverClassName"
 			value="com.mysql.jdbc.Driver" />
 
-		<property name="url" value="jdbc:mysql://localhost:3306/projet_java?useSSL=false" />
-		<property name="username" value="root" />
-		<property name="password" value="" />
+		<property name="url" value="jdbc:mysql://devbdd.iutmetz.univ-lorraine.fr:3306/e5756u_Projet_java?useSSL=false" />
+		<property name="username" value="e5756u_appli" />
+		<property name="password"  value="32317718" />
 	</bean>
 
 	<!-- ============= Gestion des Transactions ============= -->
