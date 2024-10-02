@@ -6,6 +6,7 @@ import static org.junit.Assert.fail;
 
 import java.util.Map;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,7 @@ import com.iut.banque.modele.Utilisateur;
 // TestsDaoHibernate-context.xml dans le même dosssier que la classe
 @ContextConfiguration("/test/resources/TestsDaoHibernate-context.xml")
 @Transactional("transactionManager")
+
 public class TestsDaoHibernate {
 
 	// Indique que c'est un champ à injecter automatiquement. Le bean est choisi

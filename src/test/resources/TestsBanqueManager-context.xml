@@ -38,10 +38,9 @@
 	<bean id="dataSource" scope="singleton"
 		class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url"
-			value="jdbc:mysql://localhost:3306/bankiuttest" />
-		<property name="username" value="root" />
-		<property name="password" value="root" />
+		<property name="url" value="jdbc:mysql://devbdd.iutmetz.univ-lorraine.fr:3306/e5756u_Projet_java_tests" />
+		<property name="username" value="e5756u_appli" />
+		<property name="password" value="32317718" />
 		<!-- Nécessaire, sinon les test se font quand même -->
 		<property name="defaultAutoCommit" value="false" />
 	</bean>
