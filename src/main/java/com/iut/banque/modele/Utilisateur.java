@@ -11,6 +11,10 @@ import javax.persistence.Table;
 
 import com.iut.banque.exceptions.IllegalFormatException;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 /**
  * Classe représentant un utilisateur quelconque.
  * 

@@ -5,6 +5,10 @@ import com.iut.banque.interfaces.IDao;
 import com.iut.banque.modele.Gestionnaire;
 import com.iut.banque.modele.Utilisateur;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 public class LoginManager {
 
 	private IDao dao;
@@ -23,6 +27,31 @@ public class LoginManager {
 	}
 
 	/**
+	 * Méthode pour hasher le mot de passe lors du login pour que cela soit conforme à la base de données
+	 * Utilisation de MessageDigest pour choisir l'algorithme de hashage
+	 * @param password
+	 * @return
+	 */
+	private String hashPassword(String password) {
+		try {
+			MessageDigest digest = MessageDigest.getInstance("SHA-256");
+			byte[] hash = digest.digest(password.getBytes(StandardCharsets.UTF_8));
+			StringBuilder hexString = new StringBuilder(2 * hash.length);
+			for (byte b : hash) {
+				String hex = Integer.toHexString(0xff & b);
+				if (hex.length() == 1) {
+					hexString.append('0');
+				}
+				hexString.append(hex);
+			}
+			return hexString.toString();
+		} catch (NoSuchAlgorithmException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+
+	/**
 	 * Méthode pour permettre la connection de l'utilisateur via un login en
 	 * confrontant le mdp d'un utilisateur de la base de données avec le mot de
 	 * passe donné en paramètre
@@ -37,7 +66,9 @@ public class LoginManager {
 	 *         l'état du login
 	 */
 	public int tryLogin(String userCde, String userPwd) {
-		if (dao.isUserAllowed(userCde, userPwd)) {
+		// Hashage du mot de passe entré par l'utilisateur
+		String hashedPassword = hashPassword(userPwd);
+		if (dao.isUserAllowed(userCde, hashedPassword)) {
 			user = dao.getUserById(userCde);
 			if (user instanceof Gestionnaire) {
 				return LoginConstants.MANAGER_IS_CONNECTED;

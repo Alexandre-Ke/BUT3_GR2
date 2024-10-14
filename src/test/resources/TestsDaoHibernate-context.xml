@@ -18,7 +18,7 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
-	<!-- La session factory utilisée les tests. Utilise Hibernate. Il est possible 
+	<!-- La session factory utilise les tests. Utilise Hibernate. Il est possible
 		d'utiliser <property name="annotatedClasses"> avec une liste de classes au 
 		lieu de <property name="packagesToScan" value="com.iut.banque.modele" /> -->
 	<bean id="sessionFactory" scope="singleton"

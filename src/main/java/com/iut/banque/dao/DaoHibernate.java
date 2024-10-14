@@ -34,6 +34,7 @@ public class DaoHibernate implements IDao {
 
 	private SessionFactory sessionFactory;
 
+
 	public DaoHibernate() {
 		System.out.println("==================");
 		System.out.println("Création de la Dao");
