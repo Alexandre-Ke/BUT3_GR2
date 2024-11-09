@@ -304,11 +304,6 @@ public class TestsDaoHibernate {
 		}
 	}
 
-//	@Test
-//	public void testIsUserAllowedUser() {
-//		assertTrue(daoHibernate.isUserAllowed("c.exist", "TEST PASS"));
-//	}
-
 	@Test
 	public void testIsUserAllowedUser() {
 		// Appeler directement hashPassword de LoginManager comme méthode statique
