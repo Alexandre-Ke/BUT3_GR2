@@ -32,7 +32,7 @@ public class LoginManager {
 	 * @param password
 	 * @return
 	 */
-	private String hashPassword(String password) {
+	public static String hashPassword(String password) {
 		try {
 			MessageDigest digest = MessageDigest.getInstance("SHA-256");
 			byte[] hash = digest.digest(password.getBytes(StandardCharsets.UTF_8));

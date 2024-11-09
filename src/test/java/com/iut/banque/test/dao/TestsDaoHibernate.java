@@ -6,6 +6,7 @@ import static org.junit.Assert.fail;
 
 import java.util.Map;
 
+import com.iut.banque.facade.LoginManager;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -303,10 +304,19 @@ public class TestsDaoHibernate {
 		}
 	}
 
+//	@Test
+//	public void testIsUserAllowedUser() {
+//		assertTrue(daoHibernate.isUserAllowed("c.exist", "TEST PASS"));
+//	}
+
 	@Test
 	public void testIsUserAllowedUser() {
-		assertTrue(daoHibernate.isUserAllowed("c.exist", "TEST PASS"));
+		// Appeler directement hashPassword de LoginManager comme méthode statique
+		String hashedPassword = LoginManager.hashPassword("TEST PASS");
+		// Vérification avec le mot de passe haché
+		assertTrue(daoHibernate.isUserAllowed("c.exist", hashedPassword));
 	}
+
 
 	@Test
 	public void testIsUserAllowedWrongPassword() {
