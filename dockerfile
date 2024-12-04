@@ -24,7 +24,7 @@ FROM tomcat:9.0-jdk11-openjdk-slim
 COPY --from=build /app/target/*.war /usr/local/tomcat/webapps/
 
 # Exposition du port 8080 pour accéder à l'application
-EXPOSE 8080
+EXPOSE 8082
 
 # Commande par défaut pour démarrer Tomcat
 CMD ["catalina.sh", "run"]
