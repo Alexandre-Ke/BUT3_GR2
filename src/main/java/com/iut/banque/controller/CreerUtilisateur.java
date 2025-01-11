@@ -217,11 +217,12 @@ public class CreerUtilisateur extends ActionSupport {
 			this.result = "ERROR";
 			return "ERROR";
 		} catch (IllegalArgumentException e) {
-			this.message = "Le format de l'identifiant est incorrect.";
+			this.message = "Le format de l'identifiant (code utilisateur) est incorrect.";
 			this.result = "ERROR";
 			return "ERROR";
 		} catch (IllegalFormatException e) {
-			this.message = "Format du numéro de client incorrect.";
+//			this.message = "Format du numéro de client incorrect.";
+			this.message = e.getMessage();
 			this.result = "ERROR";
 			return "ERROR";
 		}
