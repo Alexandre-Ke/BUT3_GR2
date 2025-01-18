@@ -1,5 +1,6 @@
 package com.iut.banque.facade;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import com.iut.banque.exceptions.IllegalFormatException;

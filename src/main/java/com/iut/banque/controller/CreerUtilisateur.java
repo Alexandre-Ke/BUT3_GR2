@@ -32,6 +32,8 @@ public class CreerUtilisateur extends ActionSupport {
 		return userId;
 	}
 
+
+
 	/**
 	 * @param userId
 	 *            the userId to set
@@ -213,7 +215,7 @@ public class CreerUtilisateur extends ActionSupport {
 			this.result = "ERROR";
 			return "ERROR";
 		} catch (TechnicalException e) {
-			this.message = "Le numéro de client est déjà assigné à un autre client.";
+			this.message = "²Le numéro de client est déjà assigné à un autre client.";
 			this.result = "ERROR";
 			return "ERROR";
 		} catch (IllegalArgumentException e) {

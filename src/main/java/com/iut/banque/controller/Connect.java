@@ -35,6 +35,8 @@ public class Connect extends ActionSupport {
 
 	}
 
+
+
 	/**
 	 * Méthode pour vérifier la connexion de l'utilisateur basé sur les
 	 * paramêtres userCde et userPwd de cette classe
