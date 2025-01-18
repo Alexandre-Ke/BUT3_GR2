@@ -46,7 +46,9 @@ public class CompteSansDecouvert extends Compte {
 		} else if (montant > this.solde) {
 			throw new InsufficientFundsException("Le solde du compte " + this.numeroCompte + " est insuffisant.");
 		} else {
+			System.out.println("Avant débit : " + this.solde);
 			this.solde -= montant;
+			System.out.println("Après débit : " + this.solde);
 		}
 	}
 

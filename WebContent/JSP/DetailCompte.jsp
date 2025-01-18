@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="/_00_ASBank2023/style/style.css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/style/style.css" />
 
 <title>Détail du Compte <s:property value="compte" /></title>
 </head>
@@ -49,12 +49,16 @@
 		</s:if>
 		<br />
 	</p>
-	<s:form name="formOperation" action="creditAction" method="post">
+	<s:form name="formOperationDebit" action="debitAction" method="post">
 		<s:textfield label="Montant" name="montant" />
-		<input type="hidden" name="compte"
-			value="<s:property value='compte' />">
-		<s:submit value="Crediter" />
-		<s:submit value="Debiter" action="debitAction" />
+		<input type="hidden" name="compte" value="<s:property value='compte' />">
+		<s:submit value="Débiter" />
+	</s:form>
+
+	<s:form name="formOperationCredit" action="creditAction" method="post">
+		<s:textfield label="Montant" name="montant" />
+		<input type="hidden" name="compte" value="<s:property value='compte' />">
+		<s:submit value="Créditer" />
 	</s:form>
 
 	<s:url action="urlDetail" var="urlDetail">
