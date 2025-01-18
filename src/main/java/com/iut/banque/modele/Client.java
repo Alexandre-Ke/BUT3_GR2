@@ -193,8 +193,13 @@ public class Client extends Utilisateur {
 	 *         correct, false sinon
 	 */
 	public static boolean checkFormatNumeroClient(String s) {
-		return Pattern.matches("[0-9]{10}", s);
+		if (s == null || s.isEmpty()) {
+			return false; // Retourne false si la chaîne est null ou vide
+		}
+		s = s.trim(); // Supprime les espaces autour de la chaîne
+		return Pattern.matches("[0-9]{10}", s); // Vérifie si la chaîne contient exactement 10 chiffres
 	}
+
 
 	/**
 	 * Fonction qui va vérifier si le client a au moins un compte à découvert.

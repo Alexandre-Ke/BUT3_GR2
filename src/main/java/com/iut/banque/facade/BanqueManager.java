@@ -240,11 +240,20 @@ public class BanqueManager {
 			String numeroClient)
 			throws IllegalOperationException, TechnicalException, IllegalArgumentException, IllegalFormatException {
 		Map<String, Client> liste = this.getAllClients();
+		if (liste == null) {
+			throw new IllegalStateException("La liste des clients est null.");
+		}
 		for (Map.Entry<String, Client> entry : liste.entrySet()) {
-			if (entry.getValue().getNumeroClient().equals(numeroClient)) {
-				throw new IllegalOperationException(
-						"Un client avec le numero de client " + numeroClient + " existe déjà");
+			if (entry.getValue() == null) {
+				throw new IllegalStateException("Une entrée dans la liste des clients a une valeur null.");
 			}
+			if (entry.getValue().getNumeroClient() != null &&
+					entry.getValue().getNumeroClient().equals(numeroClient)) {
+				throw new IllegalOperationException(
+						"Un client avec le numéro de client " + numeroClient + " existe déjà");
+			}
+
+
 		}
 		dao.createUser(nom, prenom, adresse, male, userId, userPwd, false, numeroClient);
 

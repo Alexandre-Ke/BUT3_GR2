@@ -1,5 +1,6 @@
 package com.iut.banque.modele;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import com.iut.banque.exceptions.IllegalFormatException;
@@ -13,7 +14,9 @@ public class Banque {
 	private Map<String, Compte> accounts;
 
 	public Banque() {
+		this.clients = new HashMap<>();
 	}
+
 
 	/**
 	 * Getter du map de clients
@@ -21,8 +24,12 @@ public class Banque {
 	 * @return Map<String, Client> : correspondant au champ clients
 	 */
 	public Map<String, Client> getClients() {
+		if (clients == null) {
+			throw new IllegalStateException("La map clients n'est pas initialisée.");
+		}
 		return clients;
 	}
+
 
 	/**
 	 * Setter du map de clients
