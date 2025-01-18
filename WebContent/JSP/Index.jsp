@@ -6,7 +6,7 @@
 <html>
 <script type="text/javascript">
 	function DisplayMessage() {
-		alert('Ce TD a été donné pour les AS dans le cadre du cours de CO Avancé (Promotion 2017-2018)');
+		alert('Ce TD a été donné pour les AS dans le cadre du cours de CO Avancé (Promotion 2017-20188)');
 	}
 </script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/style/style.css" />
