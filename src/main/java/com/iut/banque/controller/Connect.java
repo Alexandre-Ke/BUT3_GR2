@@ -89,7 +89,7 @@ public class Connect extends ActionSupport {
 	 * Setter du champ userCde
 	 * 
 	 * @param userCde
-	 *            : String correspondant au userCode à établir test
+	 *            : String correspondant au userCode à établir test2
 	 */
 	public void setUserCde(String userCde) {
 		this.userCde = userCde;
