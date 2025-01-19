@@ -89,13 +89,21 @@ public class CompteAvecDecouvert extends Compte {
 	 */
 	@Override
 	public void debiter(double montant) throws InsufficientFundsException, IllegalFormatException {
+		System.out.println("Méthode debiter appelée avec montant : " + montant);
 		if (montant < 0) {
 			throw new IllegalFormatException("Le montant ne peux être négatif");
 		} else if (montant > this.solde + this.decouvertAutorise) {
 			throw new InsufficientFundsException("Le solde du compte " + this.numeroCompte + " est insuffisant.");
 		} else {
+			System.out.println("Avant débit : " + this.solde);
+			System.out.println("Montant à débiter : " + montant);
 			this.solde -= montant;
+			System.out.println("Après débit : " + this.solde);
 		}
+	}
+
+	public static void main(String[] args) {
+		System.out.println("Test de sortie console.");
 	}
 
 	/*
