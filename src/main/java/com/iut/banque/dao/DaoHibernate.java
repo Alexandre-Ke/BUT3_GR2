@@ -149,6 +149,7 @@ public class DaoHibernate implements IDao {
 			throws TechnicalException, IllegalArgumentException, IllegalFormatException {
 		Session session = sessionFactory.getCurrentSession();
 
+
 		Utilisateur user = session.get(Utilisateur.class, userId);
 		if (user != null) {
 			throw new TechnicalException("User Id déjà utilisé.");

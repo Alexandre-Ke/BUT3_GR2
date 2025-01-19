@@ -35,6 +35,8 @@ public class Connect extends ActionSupport {
 
 	}
 
+
+
 	/**
 	 * Méthode pour vérifier la connexion de l'utilisateur basé sur les
 	 * paramêtres userCde et userPwd de cette classe
@@ -87,7 +89,7 @@ public class Connect extends ActionSupport {
 	 * Setter du champ userCde
 	 * 
 	 * @param userCde
-	 *            : String correspondant au userCode à établir
+	 *            : String correspondant au userCode à établir test2
 	 */
 	public void setUserCde(String userCde) {
 		this.userCde = userCde;
