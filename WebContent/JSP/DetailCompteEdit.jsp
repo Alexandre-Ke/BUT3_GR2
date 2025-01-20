@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/style/style.css" />
 
-<title>Détail du Compte <s:property value="compte" /></title>
+<title>Détail du Compteeee <s:property value="compte" /></title>
 </head>
 <body>
 	<div class="btnLogout">
@@ -49,12 +49,16 @@
 		</s:if>
 		<br />
 	</p>
-	<s:form name="formOperation" action="creditActionEdit" method="post">
+	<s:form name="formOperationDebit" action="debitAction" method="post">
 		<s:textfield label="Montant" name="montant" />
-		<input type="hidden" name="compte"
-			value="<s:property value='compte.numeroCompte' />">
-		<s:submit value="Crediter" />
-		<s:submit value="Debiter" action="debitActionEdit" />
+		<input type="hidden" name="compte" value="<s:property value='compte' />">
+		<s:submit value="Débiter" />
+	</s:form>
+
+	<s:form name="formOperationCredit" action="creditAction" method="post">
+		<s:textfield label="Montant" name="montant" />
+		<input type="hidden" name="compte" value="<s:property value='compte' />">
+		<s:submit value="Créditer" />
 	</s:form>
 
 	<s:if test="%{compte.className == \"CompteAvecDecouvert\"}">
