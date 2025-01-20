@@ -50,7 +50,7 @@ public class Client extends Utilisateur {
 	 */
 	public void setUserId(String userId) throws IllegalFormatException {
 		if (!Client.checkFormatUserIdClient(userId)) {
-			throw new IllegalFormatException("L'identifiant n'est pas au bon format." + "Format attendu : e. d.dupont123");
+			throw new IllegalFormatException("L'identifiant n'est pas au bon format." + "Format attendu : d.dupont123");
 		}
 		super.setUserId(userId);
 	}
