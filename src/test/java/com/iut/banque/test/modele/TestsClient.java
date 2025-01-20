@@ -1,12 +1,14 @@
 package com.iut.banque.test.modele;
 
-import static org.junit.Assert.fail;
-
 import org.junit.Test;
 
 import com.iut.banque.modele.Client;
 import com.iut.banque.modele.CompteAvecDecouvert;
 import com.iut.banque.modele.CompteSansDecouvert;
+import com.iut.banque.exceptions.IllegalFormatException;
+
+import static org.junit.Assert.*;
+
 
 public class TestsClient {
 
@@ -256,5 +258,49 @@ public class TestsClient {
 			fail("Exception récupérée -> " + e.getStackTrace().toString());
 		}
 	}
+
+
+
+
+
+	@Test
+	public void testSetUserIdThrowsExceptionForInvalidFormat() {
+		Client c = new Client();
+
+		try {
+			c.setUserId("JA");
+			fail("Devrait lever IllegalFormatException pour userId invalide !");
+		} catch (IllegalFormatException e) {
+
+			System.out.println("Exception message: " + e.getMessage());
+			 assertTrue(e.getMessage().contains("n'est pas au bon format"));
+		}
+	}
+
+	@Test
+	public void testSetUserIdValidFormat() throws IllegalFormatException {
+		Client c = new Client();
+		c.setUserId("j.doe1");
+		 assertEquals("j.doe1", c.getUserId());
+	}
+
+	@Test
+	public void testSetNumeroClientThrowsExceptionForInvalidFormat() {
+		Client c = new Client();
+		try {
+			c.setNumeroClient("123456789");
+			fail("Devrait lever IllegalFormatException pour un numéro client de format invalide !");
+		} catch (IllegalFormatException e) {
+			System.out.println("Exception message: " + e.getMessage());
+		}
+	}
+
+	@Test
+	public void testSetNumeroClientValidFormat() throws IllegalFormatException {
+		Client c = new Client();
+		c.setNumeroClient("1234567890");
+		 assertEquals("1234567890", c.getNumeroClient());
+	}
+
 
 }

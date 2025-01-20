@@ -2,7 +2,7 @@ package com.iut.banque.constants;
 
 /**
  * Classe abstraite contenant des constantes statiques utilisées pour indiquer
- * le status d'une tentative de login.
+ * le status d'une tentative de login. test
  */
 public abstract class LoginConstants {
 

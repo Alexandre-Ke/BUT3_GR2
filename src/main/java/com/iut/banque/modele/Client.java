@@ -50,7 +50,7 @@ public class Client extends Utilisateur {
 	 */
 	public void setUserId(String userId) throws IllegalFormatException {
 		if (!Client.checkFormatUserIdClient(userId)) {
-			throw new IllegalFormatException("L'identifiant n'est pas au bon format.");
+			throw new IllegalFormatException("L'identifiant n'est pas au bon format." + "Format attendu : e. d.dupont123");
 		}
 		super.setUserId(userId);
 	}
@@ -79,7 +79,7 @@ public class Client extends Utilisateur {
 		if (numeroClient == null) {
 			throw new IllegalArgumentException("Le numéro de client ne peut pas être nul");
 		} else if (!checkFormatNumeroClient(numeroClient)) {
-			throw new IllegalFormatException("Le numéro de client n'est pas au bon format.");
+			throw new IllegalFormatException("Le numéro de client n'est pas au bon format." + "Format attendu : exactement 10 chiffres (ex. 1234567890)");
 		} else {
 			this.numeroClient = numeroClient;
 		}
@@ -193,8 +193,13 @@ public class Client extends Utilisateur {
 	 *         correct, false sinon
 	 */
 	public static boolean checkFormatNumeroClient(String s) {
-		return Pattern.matches("[0-9]{10}", s);
+		if (s == null || s.isEmpty()) {
+			return false; // Retourne false si la chaîne est null ou vide
+		}
+		s = s.trim(); // Supprime les espaces autour de la chaîne
+		return Pattern.matches("[0-9]{10}", s); // Vérifie si la chaîne contient exactement 10 chiffres
 	}
+
 
 	/**
 	 * Fonction qui va vérifier si le client a au moins un compte à découvert.

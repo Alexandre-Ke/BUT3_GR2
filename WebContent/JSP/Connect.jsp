@@ -6,8 +6,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
 <title>Tableau de bord</title>
-<link rel="stylesheet" href="/_00_ASBank2023/style/style.css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/style/style.css" />
 </head>
 <body>
 	<div class="btnLogout">
@@ -17,7 +20,7 @@
 	</div>
 	<h1>Tableau de bord</h1>
 	<p>
-		Bienvenue <b><s:property value="connectedUser.prenom" /> <s:property
+		Bienvenueeee <b><s:property value="connectedUser.prenom" /> <s:property
 				value="connectedUser.nom" /></b> !
 	</p>
 	<p>Voici l'état de vos comptes :</p>
@@ -30,7 +33,7 @@
 		<s:iterator value="accounts">
 			<tr>
 				<td><s:url action="urlDetail" var="urlDetail">
-						<s:param name="compte"><s:property value="key" /></s:param> 
+						<s:param name="compte"><s:property value="key" /></s:param>
 						<%-- <s:param name="idCompte"><s:property value="key" /></s:param> --%>
 					</s:url> <s:a href="%{urlDetail}">
 						<s:property value="key" />
